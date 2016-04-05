@@ -63,13 +63,6 @@ class postgresql::server::config {
         auth_method => 'md5',
         order       => '003',
       }
-      postgresql::server::pg_hba_rule { 'deny access to postgresql user':
-        type        => 'host',
-        user        => $user,
-        address     => $ip_mask_deny_postgres_user,
-        auth_method => 'reject',
-        order       => '004',
-      }
 
       postgresql::server::pg_hba_rule { 'allow access to all users':
         type        => 'host',
